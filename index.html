@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">CareerTrack</div>
+
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#add">Add Application</a>
+        <a href="#applications">Applications</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <div>
+        <h1>Job Application Dashboard</h1>
+        <p>
+            Track your job applications, interviews and career progress
+            from one simple dashboard.
+        </p>
+        <a href="#applications" class="btn">View Applications</a>
+    </div>
+</section>
+
+<section class="stats" id="dashboard">
+
+    <div class="stat-card">
+        <h2 id="totalApplications">0</h2>
+        <p>Total Applications</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="interviewApplications">0</h2>
+        <p>Interviews</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="selectedApplications">0</h2>
+        <p>Selected</p>
+    </div>
+
+    <div class="stat-card">
+        <h2 id="rejectedApplications">0</h2>
+        <p>Rejected</p>
+    </div>
+
+</section>
+
+<section class="container" id="add">
+
+    <div class="section-title">
+        <h2>Add Job Application</h2>
+        <p>Enter the details of a new job application.</p>
+    </div>
+
+    <form id="applicationForm">
+
+        <div class="form-group">
+            <label>Company Name</label>
+            <input
+                type="text"
+                id="company"
+                placeholder="Google"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Job Role</label>
+            <input
+                type="text"
+                id="role"
+                placeholder="Software Developer"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Location</label>
+            <input
+                type="text"
+                id="location"
+                placeholder="Chennai"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Application Date</label>
+            <input
+                type="date"
+                id="applicationDate"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select id="status" required>
+                <option value="Applied">Applied</option>
+                <option value="Interview">Interview</option>
+                <option value="Selected">Selected</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Job Type</label>
+            <select id="jobType" required>
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Internship">Internship</option>
+                <option value="Remote">Remote</option>
+            </select>
+        </div>
+
+        <button type="submit">Add Application</button>
+
+    </form>
+
+</section>
+
+<section class="applications" id="applications">
+
+    <div class="section-title">
+        <h2>Job Applications</h2>
+        <p>Manage and track all your applications.</p>
+    </div>
+
+    <div class="controls">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search company or job role..."
+            onkeyup="displayApplications()"
+        >
+
+        <select
+            id="filterStatus"
+            onchange="displayApplications()"
+        >
+            <option value="All">All Status</option>
+            <option value="Applied">Applied</option>
+            <option value="Interview">Interview</option>
+            <option value="Selected">Selected</option>
+            <option value="Rejected">Rejected</option>
+        </select>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Job Role</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                    <th>Job Type</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="applicationTable"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 CareerTrack | Job Application Dashboard</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
